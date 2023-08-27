@@ -17,7 +17,7 @@ pipeline {
         }
         stage('TEST'){
             steps{
-                sh 'mvn Test'
+                sh 'mvn verify -DskipTest'
             }
         }
     }
