@@ -22,7 +22,7 @@ pipeline {
         }
         stage('UNIT TEST'){
             steps{
-                sh 'mvn verify -Dskip'
+                sh 'mvn verify -DskipTest'
             }
         }
     }
