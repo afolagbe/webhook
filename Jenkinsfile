@@ -20,5 +20,10 @@ pipeline {
                 sh 'mvn verify -DskipTest'
             }
         }
+        stage('INTEGRATION TEST'){
+            steps{
+                sh 'mvn verify -DskipTest'
+            }
+        }
     }
 }
