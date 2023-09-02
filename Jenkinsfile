@@ -4,6 +4,10 @@ pipeline {
         jdk 'jdk'
         maven 'maven'
     }
+    environment{
+        Sonarserver = 'SONARSCANNER'
+        Sonerqube = 'SONARSERVER'
+    }
     stages{
         stage('PULL CODE FROM GITHUB'){
             steps{
