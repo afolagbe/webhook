@@ -30,5 +30,10 @@ pipeline {
                 sh 'mvn verify test'
             }
         }
+        stage('QUALITY GATES'){
+            steps{
+                waitForQualityGate abortPipeline:true
+            }
+        }
     }
 }
