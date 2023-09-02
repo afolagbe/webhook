@@ -4,14 +4,10 @@ pipeline {
         jdk 'jdk'
         maven 'maven'
     }
-    environment{
-        Sonarserver = 'SONARSCANNER'
-        Sonerqube = 'SONARSERVER'
-    }
     stages{
         stage('PULL CODE FROM GITHUB'){
             steps{
-                git branch: 'ci-jenkins', url: 'https://github.com/afolagbe/Batch3-project-.git'
+                git branch: 'webapp', url: 'https://github.com/afolagbe/webhook.git'
             }
         }
         stage('BUILD THE CODE'){
@@ -32,11 +28,6 @@ pipeline {
         stage('UNIT TEST'){
             steps{
                 sh 'mvn verify test'
-            }
-        }
-        stage('QUALITY GATES'){
-            steps{
-                waitForQualityGate abortPipeline:true
             }
         }
     }
