@@ -30,5 +30,12 @@ pipeline {
                 sh 'mvn verify test'
             }
         }
+        stage('QUALITY GATES'){
+            steps{
+                timeout(time:1 unit: 'MINUTES'){
+                    waitForQualityGate aboutPipeline: true
+                }
+            }
+        }
     }
 }
